@@ -12,7 +12,7 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.faceted.datewidget\n"
+"Domain: DOMAIN\n"
 
 #: ../range/range.py:24
 msgid "Catalog index (begin date)"
