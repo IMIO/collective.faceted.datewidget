@@ -16,13 +16,13 @@ msgstr ""
 
 #: ../range/range.py:24
 msgid "Catalog index (begin date)"
-msgstr ""
+msgstr "Index du catalogue (date de début)"
 
 #: ../range/range.py:36
 msgid "Catalog index (end date)"
-msgstr ""
+msgstr "Index du catalogue (date de fin)"
 
 #: ../range/range.py:50
 msgid "Date range (begin/end)"
-msgstr ""
+msgstr "Intervalle de dates (début/fin)"
 
