@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from eea.facetednavigation import EEAMessageFactory as EEAMF
-from eea.facetednavigation.widgets.widget import Widget as AbstractWidget
+from eea.facetednavigation.widgets.daterange.interfaces import DefaultSchemata
+from eea.facetednavigation.widgets.daterange.interfaces import LayoutSchemata
+from eea.facetednavigation.widgets.daterange.interfaces import DisplaySchemata
 from eea.facetednavigation.widgets.daterange import widget
 from Products.Archetypes.public import Schema
 from Products.Archetypes.public import StringField
@@ -49,7 +51,7 @@ class Widget(widget.Widget):
     widget_type = 'daterangecustom'
     widget_label = _('Date range (begin/end)')
 
-    edit_schema = AbstractWidget.edit_schema.copy() + widget.EditSchema.copy() + EditSchema.copy()  # NOQA
+    groups = (DefaultSchemata, LayoutSchemata, DisplaySchemata)
 
     @property
     def css_class(self):
