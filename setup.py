@@ -41,7 +41,7 @@ setup(
         # -*- Extra requirements: -*-
         'plone.api',
         'setuptools',
-        'eea.facetednavigation',
+        'eea.facetednavigation>=10',
     ],
     extras_require={
         'test': [

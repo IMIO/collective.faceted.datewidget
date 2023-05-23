@@ -2,9 +2,12 @@
 from eea.facetednavigation import EEAMessageFactory as EEAMF
 from eea.facetednavigation.widgets.widget import Widget as AbstractWidget
 from eea.facetednavigation.widgets.daterange import widget
-from Products.Archetypes.public import Schema
-from Products.Archetypes.public import StringField
-from Products.Archetypes.public import SelectionWidget
+from eea.facetednavigation.widgets.range.interfaces import IRangeSchema as IRangeSchemaDefault
+from eea.facetednavigation.widgets.range.interfaces import DefaultSchemata
+from eea.facetednavigation.widgets.range.interfaces import DisplaySchemata
+from eea.facetednavigation.widgets.range.interfaces import LayoutSchemata
+from z3c.form import field
+from zope import schema
 
 import logging
 
@@ -13,32 +16,31 @@ from collective.faceted.datewidget import _
 
 logger = logging.getLogger('collective.faceted.datewidget.daterange')
 
-EditSchema = Schema((
-    StringField(
-        'index',
-        schemata="default",
-        required=True,
-        vocabulary_factory='eea.faceted.vocabularies.DateRangeCatalogIndexes',
-        widget=SelectionWidget(
-            format='select',
-            label=_(u'Catalog index (begin date)'),
-            description=EEAMF(u'Catalog index to use for search'),
-            i18n_domain='collective.faceted.datewidget',
-        )
-    ),
-    StringField(
-        'index_end',
-        schemata="default",
-        required=True,
-        vocabulary_factory='eea.faceted.vocabularies.DateRangeCatalogIndexes',
-        widget=SelectionWidget(
-            format='select',
-            label=_(u'Catalog index (end date)'),
-            description=EEAMF(u'Catalog index to use for search'),
-            i18n_domain='collective.faceted.datewidget',
-        )
-    ),
-))
+
+class IRangeSchema(IRangeSchemaDefault):
+
+    index = schema.Choice(
+        title=_(u'Catalog index (begin date)'),
+        description=EEAMF(u'Catalog index to use for search'),
+        vocabulary="eea.faceted.vocabularies.RangeCatalogIndexes",
+    )
+
+    index_end = schema.Choice(
+        title=_(u'Catalog index (end date)'),
+        description=EEAMF(u'Catalog index to use for search'),
+        vocabulary="eea.faceted.vocabularies.RangeCatalogIndexes",
+    )
+
+
+class RangeSchemata(DefaultSchemata):
+
+    fields = field.Fields(IRangeSchema).select(
+        "title",
+        "default",
+        "index",
+        "index_end",
+        "integer",
+    )
 
 
 class Widget(widget.Widget):
@@ -48,8 +50,7 @@ class Widget(widget.Widget):
     # Widget properties
     widget_type = 'daterangecustom'
     widget_label = _('Date range (begin/end)')
-
-    edit_schema = AbstractWidget.edit_schema.copy() + widget.EditSchema.copy() + EditSchema.copy()  # NOQA
+    groups = (RangeSchemata, LayoutSchemata, DisplaySchemata)
 
     @property
     def css_class(self):

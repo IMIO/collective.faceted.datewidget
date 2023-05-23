@@ -3,6 +3,9 @@
     xmlns:faceted="http://namespaces.zope.org/faceted"
     i18n_domain="collective.faceted.datewidget">
 
-  <faceted:widget factory=".range.Widget" />
+  <faceted:widget
+    factory=".range.Widget"
+    schema=".range.IRangeSchema"
+    />
 
 </configure>
