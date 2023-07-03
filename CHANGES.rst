@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a2 (unreleased)
+1.0.0 (2023-07-03)
 ------------------
 
 - Upgrade to be compatible with eea.facetednavigation 10 and above
