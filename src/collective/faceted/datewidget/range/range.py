@@ -22,13 +22,13 @@ class IRangeSchema(IRangeSchemaDefault):
     index = schema.Choice(
         title=_(u'Catalog index (begin date)'),
         description=EEAMF(u'Catalog index to use for search'),
-        vocabulary="eea.faceted.vocabularies.RangeCatalogIndexes",
+        vocabulary="eea.faceted.vocabularies.DateRangeCatalogIndexes",
     )
 
     index_end = schema.Choice(
         title=_(u'Catalog index (end date)'),
         description=EEAMF(u'Catalog index to use for search'),
-        vocabulary="eea.faceted.vocabularies.RangeCatalogIndexes",
+        vocabulary="eea.faceted.vocabularies.DateRangeCatalogIndexes",
     )
 
 

@@ -5,7 +5,8 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix widget vocabulary to be compatible with new requirements from eea.facetednavigation [URB-2868, URB-2870]
+  [jchandelle]
 
 
 1.0.0 (2023-07-03)
