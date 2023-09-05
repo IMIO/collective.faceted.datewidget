@@ -5,7 +5,7 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Fix widget vocabulary new urban instance install [URB-2868, URB-2870]
+- Fix widget vocabulary to be compatible with new requirements from eea.facetednavigation [URB-2868, URB-2870]
   [jchandelle]
 
 
