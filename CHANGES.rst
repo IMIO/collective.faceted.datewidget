@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.1 (unreleased)
+1.0.1 (2023-09-05)
 ------------------
 
 - Fix widget vocabulary to be compatible with new requirements from eea.facetednavigation [URB-2868, URB-2870]
